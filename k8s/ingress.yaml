@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: eshop-ingress
@@ -10,34 +10,58 @@ spec:
   - http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: eshop-frontend
-          servicePort: 8080
+          service:
+            name: eshop-frontend
+            port:
+              number: 8080
       - path: /api
+        pathType: Prefix
         backend:
-          serviceName: eshop-backend
-          servicePort: 8090
+          service:
+            name: eshop-backend
+            port:
+              number: 8090
       - path: /static
+        pathType: Prefix
         backend:
-          serviceName: eshop-backend
-          servicePort: 8090    
+          service:
+            name: eshop-backend
+            port:
+              number: 8090
       - path: /api/carts
+        pathType: Prefix
         backend:
-          serviceName: eshop-cartservice
-          servicePort: 8091
+          service:
+            name: eshop-cartservice
+            port:
+              number: 8091
       - path: /api/products
+        pathType: Prefix
         backend:
-          serviceName: eshop-productservice
-          servicePort: 8092
+          service:
+            name: eshop-productservice
+            port:
+              number: 8092
       - path: /api/recommends
+        pathType: Prefix
         backend:
-          serviceName: eshop-recommendservice
-          servicePort: 8093
+          service:
+            name: eshop-recommendservice
+            port:
+              number: 8093
       - path: /api/currencies
+        pathType: Prefix
         backend:
-          serviceName: eshop-currencyservice
-          servicePort: 8094
+          service:
+            name: eshop-currencyservice
+            port:
+              number: 8094
       - path: /api/ads
+        pathType: Prefix
         backend:
-          serviceName: eshop-adservice
-          servicePort: 8095
+          service:
+            name: eshop-adservice
+            port:
+              number: 8095

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: postgres:13
+        image: postgres:15
         env:
           - name: POSTGRES_USER
             value: eshop_user

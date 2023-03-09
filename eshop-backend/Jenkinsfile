@@ -1,8 +1,8 @@
 pipeline {
   environment {
     PROJECT_ID = 'architect-certification-289902'
-    CLASS_ID = 'CLASS_ID'
-    MEMBER_ID = 'MEMBER_ID'
+    CLASS_ID = '2301'
+    MEMBER_ID = '41'
   }
   agent {
     kubernetes {

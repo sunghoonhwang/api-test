@@ -49,7 +49,7 @@
     }),
     methods: {
       checkout() {
-        this.$store.dispatch('cart/checkout')
+        this.$store.dispatch('testjob/checkout')
         this.$router.push("/order")
       }
     }

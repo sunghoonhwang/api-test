@@ -11,10 +11,10 @@
               </b-select>
             </b-form-group>      
             <b-form-group md="5" class="mb-3" label="URL" label-for="street_address">
-              <b-form-input id="street_address" :value="orderInfo.address.streetAddress" required />
+              <b-form-input id="street_address" :value="orderInfo.url" required />
             </b-form-group>      
             <b-form-group md="5" class="mb-3" label="Body" label-for="street_address">
-              <b-form-input id="street_address" :value="orderInfo.address.streetAddress" required />
+              <b-form-input id="street_address" :value="orderInfo.body" required />
             </b-form-group>      
           </b-form-row>
           <b-form-row>
@@ -25,10 +25,10 @@
               </b-select>
             </b-form-group>      
             <b-form-group md="5" class="mb-3" label="Key" label-for="street_address">
-              <b-form-input id="street_address" :value="orderInfo.address.streetAddress" required />
+              <b-form-input id="street_address" :value="orderInfo.key" required />
             </b-form-group>      
             <b-form-group md="2" class="mb-3" label="Value" label-for="credit_card_cvv">
-              <b-form-input id="credit_card_cvv" :value="orderInfo.creditCardInfo.cvv" required />
+              <b-form-input id="credit_card_cvv" :value="orderInfo.value" required />
             </b-form-group>
           </b-form-row>
           <b-form-row>
@@ -45,7 +45,7 @@
   export default {
     name: 'Checkout',
     computed: mapGetters({
-      orderInfo: 'cart/orderInfo'
+      orderInfo: 'testjob/orderInfo'
     }),
     methods: {
       checkout() {

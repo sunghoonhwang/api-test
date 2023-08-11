@@ -8,6 +8,10 @@ export default {
       items: [],
       shippingCost: 0,
       orderInfo: {
+        url: "https://cloud.samsungsds.com",
+        body: "-",
+        key: "authkey",
+        value: "dGVzdGFkbWluOmFkbWFkbTEh",
         emailAddress: "someone@example.com",
         address: {
           streetAddress: "1600 Amphitheatre Parkway",

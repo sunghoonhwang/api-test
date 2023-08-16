@@ -41,7 +41,6 @@ public class AdController {
 
     @GetMapping
     @ResponseBody
-    @CircuitBreaker(name = "ads-circuit-breaker", fallbackMethod = "getAdsFallback")
     public ResponseEntity<List<Ad>> getRandomAds() {
         logger.info("getRandomAds");
         List<Ad> ads = new ArrayList<>(MAX_ADS_TO_SERVE);
@@ -49,25 +48,6 @@ public class AdController {
         for (int i = 0; i < MAX_ADS_TO_SERVE; i++) {
             ads.add(Iterables.get(allAds, random.nextInt(allAds.size())));
         }
-        logger.info(ads.toString());
-        return ResponseEntity.ok(ads);
-    }
-
-    @GetMapping(value = "/{categories}")
-    @ResponseBody
-    @CircuitBreaker(name = "ads-circuit-breaker", fallbackMethod = "getAdsFallback")
-    public ResponseEntity<List<Ad>> getAdsByCategory(@PathVariable String[] categories) {
-        logger.info("getAdsByCategory {}", Arrays.toString(categories));
-        List<Ad> ads = Lists.newArrayList(adRepository.findByCategoryIn(categories));
-        logger.info(ads.toString());
-        return ResponseEntity.ok(ads);
-    }
-
-    // fallback method
-    private ResponseEntity<List<Ad>> getAdsFallback(Exception e) {
-        logger.info("Fallback : returning a static ad");
-        List<Ad> ads = new ArrayList<>();
-        ads.add(adRepository.findById(1).orElse(null));
         logger.info(ads.toString());
         return ResponseEntity.ok(ads);
     }

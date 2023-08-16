@@ -14,19 +14,16 @@ public class Ad {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
-    
-    @Column(nullable = false)
-    private String category;
 
-    @Column(nullable = false)
-    private String redirectUrl;
+    @Column
+    private String paramKey;
 
-    @Column(nullable = false)
+    @Column
     @ColumnTransformer(
-            read = "PGP_SYM_DECRYPT(text, 'enc_test()')",
+            read = "PGP_SYM_DECRYPT(paramValue, 'enc_test()')",
             write = "PGP_SYM_ENCRYPT (?, 'enc_test()')"        
     )
-    private String text;
+    private String paramValue;
 
 
     public Integer getId() {
@@ -37,35 +34,26 @@ public class Ad {
         this.id = id;
     }
 
-    public String getCategory() {
-        return this.category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getRedirectUrl() {
-        return this.redirectUrl;
+        return this.paramKey;
     }
 
     public void setRedirectUrl(String redirectUrl) {
-        this.redirectUrl = redirectUrl;
+        this.paramKey = redirectUrl;
     }
 
     public String getText() {
-        return this.text;
+        return this.paramValue;
     }
 
     public void setText(String text) {
-        this.text = text;
+        this.paramValue = text;
     }
 
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", category='" + getCategory() + "'" +
             ", redirectUrl='" + getRedirectUrl() + "'" +
             ", text='" + getText() + "'" +
             "}";

@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import org.hibernate.annotations.ColumnTransformer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 @Entity
 public class Ad {
@@ -19,6 +22,10 @@ public class Ad {
     private String redirectUrl;
 
     @Column(nullable = false)
+    @ColumnTransformer(
+            read = "PGP_SYM_DECRYPT(text, 'enc_test()')",
+            write = "PGP_SYM_ENCRYPT (?, 'enc_test()')"        
+    )
     private String text;
 
 

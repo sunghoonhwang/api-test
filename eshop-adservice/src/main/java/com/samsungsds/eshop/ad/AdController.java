@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
@@ -29,6 +31,12 @@ public class AdController {
 
     public AdController(AdRepository adRepository) {
         this.adRepository = adRepository;
+    }
+
+    @PostMapping(value = "/add")
+    public ResponseEntity<Void> addTestJob(@RequestBody Ad testJob) {
+        adRepository.save(testJob);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

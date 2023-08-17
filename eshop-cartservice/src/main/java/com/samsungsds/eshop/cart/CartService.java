@@ -24,18 +24,29 @@ public class CartService {
     }
 
     public void addToCart(final CartItem cartItem) {
-        logger.info("addToCart() : {}", cartItem);
+        logger.info("addToTestRunItems() : {}", cartItem);
         Optional<CartItem> alreadyExistCartItem = cartItemRepository.findById(cartItem.getId());
         if (alreadyExistCartItem.isPresent()) {
-            int newQuantity = alreadyExistCartItem.get().getQuantity() + cartItem.getQuantity();
-            cartItem.setQuantity(newQuantity);
+            //int newQuantity = alreadyExistCartItem.get().getQuantity() + cartItem.getQuantity();
+            //cartItem.setQuantity(newQuantity);
         }
         cartItemRepository.save(cartItem);
     }
 
+    //public List<CartItem> getCartItems() {
+      //  logger.info("getTestRunItems()");
+      //  return Lists.newArrayList(cartItemRepository.findAll());
+    //}
+
     public List<CartItem> getCartItems() {
-        logger.info("getCartItems()");
-        return Lists.newArrayList(cartItemRepository.findAll());
+        logger.info("getTestRunItems()");
+
+        Iterable<CartItem> items = cartItemRepository.findAll();
+        for (CartItem cartItem : items) {
+            logger.info(cartItem.toString());
+        }
+
+        return Lists.newArrayList(items);
     }
 
     public Long getCartItemsCount() {

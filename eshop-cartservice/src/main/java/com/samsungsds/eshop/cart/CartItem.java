@@ -7,7 +7,7 @@ import org.springframework.data.redis.core.RedisHash;
 public class CartItem {
     @Id
     private String id;
-    private int quantity;
+    private String status;
 
     public String getId() {
         return id;
@@ -17,19 +17,19 @@ public class CartItem {
         this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getQuantity() {
+        return status;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantity(String quantity) {
+        this.status = quantity;
     }
 
     @Override
     public String toString() {
-        return "CartItem{" +
+        return "TestRunItem{" +
                 "id='" + id + '\'' +
-                ", quantity=" + quantity +
+                ", status=" + status +
                 '}';
     }
 }

@@ -1,6 +1,6 @@
 <template>
   <b-navbar type="dark" variant="dark">
-    <b-navbar-brand href="/">Hipster Shop</b-navbar-brand>
+    <b-navbar-brand href="/">API Test</b-navbar-brand>
     <b-navbar-nav class="ml-auto">
       <b-nav-form v-if="currencies" method="POST" action="/setCurrency" id="currency_form">
         <b-form-select @change="setUserCurrency" :value="userCurrency" :options="currencies" style="width:auto;"></b-form-select>

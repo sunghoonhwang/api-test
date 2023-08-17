@@ -7,6 +7,7 @@ import order from '@/store/modules/order'
 import product from '@/store/modules/product'
 import recommendation from '@/store/modules/recommendation'
 import testjob from '@/store/modules/testjob'
+import testrun from '@/store/modules/testrun'
 
 Vue.use(Vuex)
 
@@ -25,6 +26,7 @@ export default new Vuex.Store({
     order,
     product,
     recommendation,
-    testjob
+    testjob,
+    testrun
   }
 })

@@ -15,16 +15,27 @@ public class Ad {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
-    private String paramKey;
+    //@Column
+    //private String paramKey;
+
+    //@Column
+    //@ColumnTransformer(
+    //        read = "PGP_SYM_DECRYPT(paramValue, 'enc_test()')",
+    //        write = "PGP_SYM_ENCRYPT (?, 'enc_test()')"        
+    //)
+    //private String paramValue;
 
     @Column
-    @ColumnTransformer(
-            read = "PGP_SYM_DECRYPT(paramValue, 'enc_test()')",
-            write = "PGP_SYM_ENCRYPT (?, 'enc_test()')"        
-    )
-    private String paramValue;
+    private String testJobId;
 
+    @Column
+    private String resultDetail;
+
+    @Column
+    private String runOrder;
+
+    @Column
+    private String tenantId;
 
     public Integer getId() {
         return this.id;
@@ -34,28 +45,60 @@ public class Ad {
         this.id = id;
     }
 
-    public String getRedirectUrl() {
-        return this.paramKey;
+    //public String getRedirectUrl() {
+    //    return this.paramKey;
+    //}
+
+    //public void setRedirectUrl(String redirectUrl) {
+    //    this.paramKey = redirectUrl;
+    //}
+
+    //public String getText() {
+    //    return this.paramValue;
+    // }
+
+    //public void setText(String text) {
+    //    this.paramValue = text;
+    // }
+    
+    public String getTestJobId() {
+        return this.testJobId;
     }
 
-    public void setRedirectUrl(String redirectUrl) {
-        this.paramKey = redirectUrl;
+    public void setTestJobId(String testJobId) {
+        this.testJobId = testJobId;
     }
 
-    public String getText() {
-        return this.paramValue;
+    public String getResultDetail() {
+        return this.resultDetail;
     }
 
-    public void setText(String text) {
-        this.paramValue = text;
+    public void setResultDetail(String resultDetail) {
+        this.resultDetail = resultDetail;
+    }
+
+    public String getRunOrder() {
+        return this.runOrder;
+    }
+
+    public void setRunOrder(String runOrder) {
+        this.runOrder = runOrder;
+    }
+
+    public String getTenantId() {
+        return this.tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
     }
 
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", redirectUrl='" + getRedirectUrl() + "'" +
-            ", text='" + getText() + "'" +
+            ", runOrder='" + getRunOrder() + "'" +
+            ", tenant_id='" + getTenantId() + "'" +
             "}";
     }
 }

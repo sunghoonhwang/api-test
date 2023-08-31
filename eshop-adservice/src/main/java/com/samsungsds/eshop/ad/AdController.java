@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 @RestController
-@RequestMapping(value="/api/ads")
+@RequestMapping(value="/api/testresults")
 public class AdController {
     private Logger logger = LoggerFactory.getLogger(AdController.class);
     private final AdRepository adRepository;
@@ -43,12 +43,19 @@ public class AdController {
     @ResponseBody
     public ResponseEntity<List<Ad>> getRandomAds() {
         logger.info("getRandomAds");
-        List<Ad> ads = new ArrayList<>(MAX_ADS_TO_SERVE);
         List<Ad> allAds = Lists.newArrayList(adRepository.findAll());
-        for (int i = 0; i < MAX_ADS_TO_SERVE; i++) {
-            ads.add(Iterables.get(allAds, random.nextInt(allAds.size())));
-        }
-        logger.info(ads.toString());
+	List<Ad> ads = new ArrayList<>(5);
+        
+        logger.info(allAds.toString());
+               
+        for (Ad ad : allAds) {
+            logger.info(ad.getTenantId());
+	    if(ad.getTenantId().equals("1")){
+                ads.add(ad);
+                logger.info("found 2");
+	    }
+        }    
+
         return ResponseEntity.ok(ads);
     }
 }

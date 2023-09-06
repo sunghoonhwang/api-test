@@ -30,11 +30,11 @@ spec:
             name: eshop-backend
             port:
               number: 8090
-      - path: /api/carts
+      - path: /api/testruns
         pathType: Prefix
         backend:
           service:
-            name: eshop-cartservice
+            name: apitest-testrunservice
             port:
               number: 8091
       - path: /api/products

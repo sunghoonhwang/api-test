@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eshop-cartservice
+  name: apitest-testrunservice
 spec:
   selector:
     matchLabels:
-      app: eshop-cartservice
+      app: apitest-testrunservice
   template:
     metadata:
       labels:
-        app: eshop-cartservice
+        app: apitest-testrunservice
     spec:
       containers:
-        - name: eshop-cartservice
-          image: eshop-cartservice
+        - name: apitest-testrunservice
+          image: apitest-testrunservice
           ports:
           - containerPort: 8091
           env:
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: eshop-cartservice
+  name: apitest-testrunservice
 spec:
   type: ClusterIP
   selector:
-    app: eshop-cartservice
+    app: apitest-testrunservice
   ports:
   - port: 8091

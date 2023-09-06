@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eshop-adservice
+  name: apitest-testjobservice
 spec:
   selector:
     matchLabels:
-      app: eshop-adservice
+      app: apitest-testjobservice
   template:
     metadata:
       labels:
-        app: eshop-adservice
+        app: apitest-testjobservice
     spec:
       containers:
-        - name: eshop-adservice
-          image: eshop-adservice
+        - name: apitest-testjobservice
+          image: apitest-testjobservice
           ports:
           - containerPort: 8095
           env:
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: eshop-adservice
+  name: apitest-testjobservice
 spec:
   type: ClusterIP
   selector:
-    app: eshop-adservice
+    app: apitest-testjobservice
   ports:
   - port: 8095

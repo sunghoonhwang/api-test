@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 @RestController
-@RequestMapping(value="/api/testresults")
+@RequestMapping(value="/api/testjobs")
 public class AdController {
     private Logger logger = LoggerFactory.getLogger(AdController.class);
     private final AdRepository adRepository;

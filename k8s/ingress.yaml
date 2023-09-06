@@ -58,10 +58,10 @@ spec:
             name: eshop-currencyservice
             port:
               number: 8094
-      - path: /api/ads
+      - path: /api/testjobs
         pathType: Prefix
         backend:
           service:
-            name: eshop-adservice
+            name: apitest-testjobservice
             port:
               number: 8095

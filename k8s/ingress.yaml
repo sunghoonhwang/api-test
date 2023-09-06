@@ -13,7 +13,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: eshop-frontend
+            name: apitest-frontend
             port:
               number: 8080
       - path: /api

@@ -2,8 +2,8 @@ apiVersion: skaffold/v2beta10
 kind: Config
 build:
   artifacts:
-    - image: eshop-frontend
-      context: eshop-frontend
+    - image: apitest-frontend
+      context: apitest-frontend
 deploy:
   kubectl:
     manifests:

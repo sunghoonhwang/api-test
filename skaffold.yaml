@@ -12,6 +12,8 @@ build:
       context: apitest-testrunservice
       jib:
         type: gradle
+    - image: apitest-testresultservice
+      context: apitest-testresultservice
 deploy:
   kubectl:
     manifests:
@@ -21,3 +23,5 @@ deploy:
       - k8s/postgresql.yaml
       - k8s/testrunservice.yaml
       - k8s/redis.yaml
+      - k8s/testresultservice.yaml
+      - k8s/rabbitmq.yaml

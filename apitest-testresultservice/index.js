@@ -10,7 +10,7 @@ const port = process.env.PORT || 8094;
 
 app.use(bodyParser.json());
 
-app.get('/api/currencies', (req, res) => {
+app.get('/api/testresults', (req, res) => {
   console.log("All Currencies")
   res.send(data)
 })

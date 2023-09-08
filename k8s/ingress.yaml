@@ -51,11 +51,11 @@ spec:
             name: eshop-recommendservice
             port:
               number: 8093
-      - path: /api/currencies
+      - path: /api/testresults
         pathType: Prefix
         backend:
           service:
-            name: eshop-currencyservice
+            name: apitest-testresultservice
             port:
               number: 8094
       - path: /api/testjobs

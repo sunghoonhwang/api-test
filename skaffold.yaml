@@ -4,8 +4,6 @@ build:
   artifacts:
     - image: apitest-frontend
       context: apitest-frontend
-    - image: apitest-frontend-v2
-      context: apitest-frontend-v2      
     - image: apitest-testjobservice
       context: apitest-testjobservice
       jib:
@@ -27,5 +25,3 @@ deploy:
       - k8s/redis.yaml
       - k8s/testresultservice.yaml
       - k8s/rabbitmq.yaml
-      - k8s/frontendv2.yaml
-      - k8s/canaryingress.yaml

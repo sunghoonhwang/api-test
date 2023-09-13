@@ -8,10 +8,18 @@ dotenv.config();
 
 const port = process.env.PORT || 8094;
 
+function wait(sec) {
+    let start = Date.now(), now = start;
+    while (now - start < sec * 1000) {
+        now = Date.now();
+    }
+}
+
 app.use(bodyParser.json());
 
 app.get('/api/testresults', (req, res) => {
   console.log("All Currencies")
+  wait(3);
   res.send(data)
 })
 

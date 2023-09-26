@@ -23,9 +23,9 @@ public class CartEventListener {
     // empty cart
     //logger.info("empty Cart : {}", orderPlaced.getOrderId());
     //cartService.emptyCart();
-    if(true){
-           throw new AmqpRejectAndDontRequeueException("RabbitMQ message exception occured ");
-    }
+    //if(true){
+    //       throw new AmqpRejectAndDontRequeueException("RabbitMQ message exception occured ");
+    //}
   }
 }
 

@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 app.get('/api/testresults', (req, res) => {
   console.log("All Currencies")
-  wait(3);
+  
   res.send(data)
 })
 

@@ -4,14 +4,8 @@ metadata:
   name: apitest-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    kubernetes.io/ingress.allow-http: "true"
-    cert-manager.io/issuer: letsencrypt-staging
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  tls:
-  - secretName: web-ssl
-    hosts:
-    - hwangsunghoon.shop
   rules:
   - http:
       paths:

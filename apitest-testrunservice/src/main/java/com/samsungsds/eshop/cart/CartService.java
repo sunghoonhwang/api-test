@@ -41,6 +41,12 @@ public class CartService {
     public List<CartItem> getCartItems() {
         logger.info("getTestRunItems()");
 
+	try{
+            Thread.sleep(300);
+        }catch(InterruptedException e){
+          e.printStackTrace();
+        }
+
         Iterable<CartItem> items = cartItemRepository.findAll();
         for (CartItem cartItem : items) {
             logger.info(cartItem.toString());

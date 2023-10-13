@@ -44,18 +44,13 @@ public class AdController {
     public ResponseEntity<List<Ad>> getRandomAds() {
         logger.info("getRandomAds");
         List<Ad> allAds = Lists.newArrayList(adRepository.findAll());
-	List<Ad> ads = new ArrayList<>(5);
-        
-        logger.info(allAds.toString());
-               
-        for (Ad ad : allAds) {
-            logger.info(ad.getTenantId());
-	    if(ad.getTenantId().equals("1")){
-                ads.add(ad);
-                logger.info("found 2");
-	    }
-        }    
+	
+	try{
+           Thread.sleep(150);
+        }catch(InterruptedException e){
+           e.printStackTrace();
+        }
 
-        return ResponseEntity.ok(ads);
+        return ResponseEntity.ok(allAds);
     }
 }

@@ -8,6 +8,10 @@ build:
       context: apitest-testjobservice
       jib:
         type: gradle 
+    - image: apitest-testrunservice
+      context: apitest-testrunservice
+      jib:
+        type: gradle    
     - image: apitest-testresultservice
       context: apitest-testresultservice
 deploy:
@@ -20,3 +24,4 @@ deploy:
       - k8s/redis.yaml
       - k8s/testresultservice.yaml
       - k8s/rabbitmq.yaml
+      - k8s/testrunservice.yaml
